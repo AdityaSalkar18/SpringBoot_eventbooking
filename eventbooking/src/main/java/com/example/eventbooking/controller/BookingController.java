@@ -13,11 +13,11 @@ public class BookingController {
     public BookingController(BookingService service){
         this.service = service;
     }
-
-    @PostMapping
-    public Booking createBooking(@RequestBody Booking booking){
-        booking.setPaymentStatus("PENDING");
-        return service.saveBooking(booking);
-    }
+//
+//    @PostMapping
+//    public Booking createBooking(@RequestBody Booking booking){
+//        booking.setPaymentStatus("PENDING");
+//        return service.saveBooking(booking);
+//    }
 
 }

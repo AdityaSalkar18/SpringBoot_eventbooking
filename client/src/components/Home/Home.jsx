@@ -15,8 +15,6 @@ const Home = () => {
 
   const [open, setOpen] = useState(false);
 
-
-  
   return (
     <>
       <Navbar />
@@ -140,7 +138,6 @@ const Home = () => {
                 ₹{event.price}
               </p>
 
-              
               <button
                 onClick={() => setOpen(true)}
                 className="w-full mt-3 bg-gradient-to-r from-orange-500 to-red-500
@@ -154,52 +151,219 @@ const Home = () => {
             </div>
           ))}
         </div>
-{open && (
-  <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black/40">
-    
-    {/* Modal Box */}
-    <div className="relative z-50 p-4 w-full max-w-2xl">
-      <div className="relative bg-white border border-gray-200 rounded-lg shadow-sm p-4 md:p-6">
+        {open && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black/40">
+            {/* Modal Box */}
+            <div className="relative z-50 p-4 w-full max-w-2xl">
+              <div className="relative bg-white border border-gray-200 rounded-lg shadow-sm p-4 md:p-6">
+                {/* Header */}
+                <div className="flex items-center justify-between border-b border-gray-200 pb-2">
+                  <h3 className="text-lg font-medium text-gray-900">
+                    Booking Details
+                  </h3>
 
-        {/* Header */}
-        <div className="flex items-center justify-between border-b border-gray-200 pb-4 md:pb-5">
-          <h3 className="text-lg font-medium text-gray-900">
-            Terms of Service
-          </h3>
+                  <button
+                    onClick={() => setOpen(false)}
+                    className="text-gray-500 hover:bg-gray-100 hover:text-gray-900 rounded-lg text-sm w-9 h-9 inline-flex justify-center items-center"
+                  >
+                    ✕
+                  </button>
+                </div>
 
-          <button
-            onClick={() => setOpen(false)}
-            className="text-gray-500 hover:bg-gray-100 hover:text-gray-900 rounded-lg text-sm w-9 h-9 inline-flex justify-center items-center"
-          >
-            ✕
-          </button>
-        </div>
+                {/* Body */}
+                <div className="space-y-4 md:space-y-6 py-4 md:py-6">
+                  <form>
+                    <div class="grid gap-6 mb-6 md:grid-cols-2">
+                      <div>
+                        <label
+                          for="name"
+                          class="block mb-2.5 text-sm font-medium text-heading"
+                        >
+                          Name
+                        </label>
+                        <input
+                          type="text"
+                          id="name"
+                          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+                          placeholder="John"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label
+                          for="email"
+                          class="block mb-2.5 text-sm font-medium text-heading"
+                        >
+                          Email
+                        </label>
+                        <input
+                          type="mail"
+                          id="email"
+                          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+                          placeholder="Doe"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label
+                          for="mobile"
+                          class="block mb-2.5 text-sm font-medium text-heading"
+                        >
+                          Mobile
+                        </label>
+                        <input
+                          type="text"
+                          id="mobile"
+                          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+                          placeholder="Flowbite"
+                          required
+                        />
+                      </div>
+                    </div>
 
-        {/* Body */}
-        <div className="space-y-4 md:space-y-6 py-4 md:py-6">
-          <p className="leading-relaxed text-gray-600">
-            With less than a month to go before the European Union enacts new
-            consumer privacy laws for its citizens.
-          </p>
-          <p className="leading-relaxed text-gray-600">
-            GDPR goes into effect on May 25 and ensures common data
-            rights across the EU.
-          </p>
-        </div>
+                    <div class="grid gap-6 mb-6 md:grid-cols-2">
+                      <div>
+                        <label
+                          for="name"
+                          class="block mb-2.5 text-sm font-medium text-heading"
+                        >
+                          Event Name
+                        </label>
+                        <input
+                          type="text"
+                          id="eventname"
+                          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+                          placeholder="John"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label
+                          for="datetime"
+                          class="block mb-2.5 text-sm font-medium text-heading"
+                        >
+                          Event Data|Time
+                        </label>
+                        <input
+                          type="text"
+                          id="datetime"
+                          class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+                          placeholder="Doe"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="desc"
+                        className="block mb-2.5 text-sm font-medium text-heading"
+                      >
+                        Event Description/Details
+                      </label>
 
-        
-       <div className="flex border-t border-gray-200 pt-4 md:pt-5">
-  <div className="ml-auto">
-    <PaymentPage />
-  </div>
-</div>
+                      <textarea
+                        id="desc"
+                        name="description"
+                        rows="2"
+                        className="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body resize-none"
+                        placeholder="Enter event details..."
+                        required
+                      ></textarea>
+                    </div>
 
+                    <div className="my-3">
+                      <label
+                        for="bedrooms-input"
+                        class="block mb-2 text-sm font-medium text-gray-900 "
+                      >
+                        No of Tickets:
+                      </label>
+                      <div class="relative flex items-center max-w-[11rem]">
+                        <button
+                          type="button"
+                          id="decrement-button"
+                          data-input-counter-decrement="bedrooms-input"
+                          class="bg-gray-100    hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none"
+                        >
+                          <svg
+                            class="w-3 h-3 text-gray-900 "
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 18 2"
+                          >
+                            <path
+                              stroke="currentColor"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M1 1h16"
+                            />
+                          </svg>
+                        </button>
+                        <input
+                          type="text"
+                          id="bedrooms-input"
+                          data-input-counter
+                          data-input-counter-min="1"
+                          data-input-counter-max="5"
+                          aria-describedby="helper-text-explanation"
+                          class="bg-gray-50 border-x-0 border-gray-300 h-11 font-medium text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pb-6   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          placeholder=""
+                          value="3"
+                          required
+                        />
+                        <div class="absolute bottom-1 start-1/2 -translate-x-1/2 rtl:translate-x-1/2 flex items-center text-xs text-gray-400 space-x-1 rtl:space-x-reverse">
+                        
+                          <span>Ticktes</span>
+                        </div>
+                        <button
+                          type="button"
+                          id="increment-button"
+                          data-input-counter-increment="bedrooms-input"
+                          class="bg-gray-100    hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none"
+                        >
+                          <svg
+                            class="w-3 h-3 text-gray-900 "
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 18 18"
+                          >
+                            <path
+                              stroke="currentColor"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M9 1v16M1 9h16"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                      <p
+                        id="helper-text-explanation"
+                        class="mt-2 text-sm text-gray-500 "
+                      >
+                        Please select the number of Tickets.
+                      </p>
+                    </div>
 
-      </div>
-    </div>
-  </div>
-)}
+                    
 
+                  
+                  </form>
+                </div>
+
+                <div className="flex border-t border-gray-200 pt-2">
+                  
+                  <div className="ml-auto">
+                    <PaymentPage />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );

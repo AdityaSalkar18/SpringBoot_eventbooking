@@ -35,19 +35,36 @@ const PaymentPage = ({amount}) =>{
   }
 };
     return(
-        //  <button onClick={handlePayment}>Pay ₹{amount}</button>
-        <button
-  onClick={handlePayment}
-  className="w-full mt-3 bg-gradient-to-r from-orange-500 to-red-500
-             text-white py-2 px-4 rounded-xl font-semibold
-             hover:from-orange-600 hover:to-red-600
-             active:scale-95 transition-all duration-200
-             shadow-md hover:shadow-lg"
->
-  {/* Pay ₹{amount} */}
-  Pay 
-</button>
+      <>
+        {/* <button onClick={handlePayment}>Pay ₹{amount}</button> */}
+       
+                   
 
+<div className="flex items-center justify-between mt-4 gap-8">
+
+  
+  <label
+  
+    className="text-md font-medium text-gray-900"
+  >
+    Total Amount: ₹
+  </label>
+
+ 
+  <button
+    onClick={handlePayment}
+    className="bg-gradient-to-r from-orange-500 to-red-500
+               text-white py-2 px-4 rounded-xl font-semibold
+               hover:from-orange-600 hover:to-red-600
+               active:scale-95 transition-all duration-200
+               shadow-md hover:shadow-lg"
+  >
+    {/* Pay ₹{amount} */}
+    Pay
+  </button>
+
+</div>
+</>
 
 
     )

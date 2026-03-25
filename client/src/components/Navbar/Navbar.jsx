@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import {  useState,useEffect } from "react";
 import { Link, useLocation} from "react-router-dom";
 
 
@@ -22,6 +22,27 @@ const Navbar = () => {
     setMenuOpen(false);
     setDropdownOpen(false);
   };
+
+
+  const [user,setUser] = useState("")
+
+  useEffect(() => {
+  const token = localStorage.getItem("token");
+
+  fetch("http://localhost:8080/auth/me", {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  })
+  .then(res => res.json())
+  .then(data => setUser(data));
+}, []);
+
+
+function logout() {
+  localStorage.removeItem("token");  // remove JWT
+  window.location.href = "/login";   // redirect to login page
+}
   return (
     <>
    
@@ -59,11 +80,11 @@ const Navbar = () => {
                 className="absolute right-0 mt-2 w-48 bg-white divide-y divide-gray-100 rounded-lg shadow-lg z-50"
               >
                 <div className=" py-2">
-                  {/* {user ? (
+                  {user ? (
                     <span className="block px-4  text-sm text-gray-700 ">
                       {user.name}
                     </span>
-                  ) : ( */}
+                  ) : (
                     <Link
                       to="/login"
                       onClick={closeAll}
@@ -71,10 +92,10 @@ const Navbar = () => {
                     >
                       Login
                     </Link>
-                  {/* )} */}
+                   )} 
 
                   <span className="block px-4 py-2 text-sm text-gray-700  truncate">
-                    {/* {user ? user.email : ""} */}
+                    {user ? user.email : ""}
                   </span>
                 </div>
                 <ul className="py-2" aria-labelledby="user-menu-button">
@@ -96,6 +117,8 @@ const Navbar = () => {
                         //   closeAll();
                         //   handleLogout();
                         // }}
+
+                        onClick={logout}
                         className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       >
                         Sign out

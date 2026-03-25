@@ -2,6 +2,7 @@ package com.example.eventbooking.controller;
 
 import com.example.eventbooking.dto.AuthResponse;
 import com.example.eventbooking.dto.LoginRequest;
+import com.example.eventbooking.dto.UserResponse;
 import com.example.eventbooking.entity.User;
 import com.example.eventbooking.repository.UserRepository;
 import com.example.eventbooking.security.JwtUtil;
@@ -54,6 +55,21 @@ public class AuthController {
 
         return new AuthResponse(token);
     }
+
+
+
+    @GetMapping("/me")
+    public UserResponse getCurrentUser(Authentication authentication) {
+
+        String email = authentication.getName();
+
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        return new UserResponse(user.getName(), user.getEmail());
+    }
+
+
 
 
 
