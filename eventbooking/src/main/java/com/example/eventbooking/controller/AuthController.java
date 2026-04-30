@@ -66,8 +66,10 @@ public class AuthController {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
-        return new UserResponse(user.getName(), user.getEmail());
+        return new UserResponse(user.getName(), user.getEmail(), user.getMobile());
     }
+
+
 
 
 

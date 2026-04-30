@@ -11,6 +11,7 @@ import About from "./components/About/About";
 import MyBooking from "./components/MyBooking/MyBooking";
 import Contact from "./components/Contact/Contact";
 
+
 function App() {
   return (
     <>
@@ -27,6 +28,7 @@ function App() {
           <Route path="/about" element={<About />} />
            <Route path="/mybooking" element={<MyBooking />} />
           <Route path="/contact" element={<Contact />} />
+          
 
         </Routes>
       </BrowserRouter>
